@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>conversation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal" #content>
+<ion-row *ngFor="let conversation of conversations">
+  <ng-container 
+  *ngIf="conversation.send !== currentUser.uid; else receiver">
+<ion-col size="10">
+  <ion-chip>
+    <p>{{ conversation.text }}</p>
+  </ion-chip>
+</ion-col>
+</ng-container>
+  <ng-template #receiver>
+    <ion-col size="10" offset="2">
+      <ion-chip>
+      <p>{{ conversation.text }}</p>
+    </ion-chip>
+    </ion-col>
+  </ng-template>
+</ion-row>
+</ion-content>
+<ion-footer>
+  <form [formGroup]="formConversation" (ngSubmit)="sendMessage()">
+    <ion-toolbar>
+      <ion-item>
+        <ion-textarea rows="2" formControlName="message"></ion-textarea>
+      </ion-item>
+      <ion-buttons slot="end">
+        <ion-button type="submit">
+          <ion-icon name="send"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </form>
+</ion-footer>

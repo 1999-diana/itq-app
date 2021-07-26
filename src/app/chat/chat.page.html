@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>chat</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<ion-list>
+  <ng-container *ngFor="let user of users">
+  <ion-item  *ngIf="user.uid !== currentUser.uid" (click)="goToConversation(user.uid)">
+    <ion-avatar>
+      <img src="" alt="">
+    </ion-avatar>
+      <ion-label>
+        <h3>{{user.nickname}}</h3>
+        <h4>{{user.email}}</h4>
+      </ion-label>
+  </ion-item>
+</ng-container>
+</ion-list>
+</ion-content>

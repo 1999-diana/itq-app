@@ -1,0 +1,12 @@
+ion-slides{
+    height: 100%;
+}
+ion-slide{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+ion-slide >ion-icon{
+    color: var(--ion-color-primary);
+    font-size: 50px;
+}
